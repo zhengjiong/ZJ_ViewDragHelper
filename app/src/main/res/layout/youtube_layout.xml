@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zj.example.viewdraghelper.YouTuBeLayout
+        android:id="@+id/youtube"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:background="#AD78CC"
+            android:fontFamily="sans-serif-thin"
+            android:gravity="center"
+            android:tag="text"
+            android:text="Drag me to the bottom"
+            android:textColor="@android:color/white"
+            android:textSize="25sp" />
+        <!--<TextView
+            android:id="@+id/desc"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#FF00FF"
+            android:gravity="center"
+            android:tag="desc"
+            android:text="Item"
+            android:textColor="@android:color/white"
+            android:textSize="35sp" />-->
+    </com.zj.example.viewdraghelper.YouTuBeLayout>
+</LinearLayout>
