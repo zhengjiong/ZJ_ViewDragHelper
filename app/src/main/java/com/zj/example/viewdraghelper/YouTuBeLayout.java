@@ -85,7 +85,12 @@ public class YouTuBeLayout extends LinearLayout{
                 if (yvel > 0 || (yvel == 0 && mDragOffset > 0.5f)) {
                     top += mDragRange;
                 }
-                mViewDragHelper.settleCapturedViewAt(releasedChild.getLeft(), top);
+                /**
+                 * 区别在于settleCapturedViewAt()会以最后松手前的滑动速率为初速度将View滚动到最终位置，
+                 * 而smoothSlideViewTo()滚动的初速度是0。
+                 */
+                //mViewDragHelper.settleCapturedViewAt(releasedChild.getLeft(), top);
+                mViewDragHelper.smoothSlideViewTo(releasedChild, releasedChild.getLeft(), top);
                 invalidate();
             }
 
