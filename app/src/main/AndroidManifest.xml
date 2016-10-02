@@ -17,9 +17,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SlidingExample"/>
+        <activity android:name=".Demo1Activity"/>
 
-        <activity android:name=".YouTuBeActivity"/>
+        <activity android:name=".Demo2Activity"/>
+        <activity android:name=".Demo3Activity"/>
     </application>
 
 </manifest>

@@ -1,32 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zj.example.viewdraghelper.VDHLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zj.example.viewdraghelper.view.VDHLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <TextView
-        android:layout_margin="10dp"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:background="#44ff0000"
-        android:text="I can be dragged !"
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
 
     <TextView
-        android:layout_margin="10dp"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:background="#44ff0000"
-        android:text="I can be dragged !"
+        android:id="@+id/tv_1"
         android:layout_width="100dp"
-        android:layout_height="100dp"/>
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="#44ff0000"
+        android:clickable="false"
+        android:gravity="center"
+        android:text="I can be dragged !"/>
 
     <TextView
-        android:layout_margin="10dp"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:background="#44ff0000"
-        android:text="I can be dragged !"
+        android:id="@+id/tv_2"
         android:layout_width="100dp"
-        android:layout_height="100dp"/>
-</com.zj.example.viewdraghelper.VDHLayout>
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="#44ff0000"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="I will back to origin pos !"/>
+
+    <TextView
+        android:id="@+id/tv_3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="#44ff0000"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="use edge tracker to operate me !"/>
+</com.zj.example.viewdraghelper.view.VDHLayout>

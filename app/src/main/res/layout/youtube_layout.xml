@@ -4,7 +4,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.zj.example.viewdraghelper.YouTuBeLayout
+    <com.zj.example.viewdraghelper.view.YouTuBeLayout
         android:id="@+id/youtube"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -31,5 +31,5 @@
             android:text="Item"
             android:textColor="@android:color/white"
             android:textSize="35sp" />-->
-    </com.zj.example.viewdraghelper.YouTuBeLayout>
+    </com.zj.example.viewdraghelper.view.YouTuBeLayout>
 </LinearLayout>

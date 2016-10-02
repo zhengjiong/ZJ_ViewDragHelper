@@ -18,14 +18,20 @@ public class MyActivity extends Activity {
         findViewById(R.id.btn1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MyActivity.this, SlidingExample.class));
+                startActivity(new Intent(MyActivity.this, Demo1Activity.class));
             }
         });
 
         findViewById(R.id.btn2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MyActivity.this, YouTuBeActivity.class));
+                startActivity(new Intent(MyActivity.this, Demo2Activity.class));
+            }
+        });
+        findViewById(R.id.btn3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MyActivity.this, Demo3Activity.class));
             }
         });
     }

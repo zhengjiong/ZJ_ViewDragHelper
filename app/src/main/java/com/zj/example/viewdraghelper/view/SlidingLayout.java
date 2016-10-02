@@ -1,4 +1,4 @@
-package com.zj.example.viewdraghelper;
+package com.zj.example.viewdraghelper.view;
 
 import android.content.Context;
 import android.support.v4.view.MotionEventCompat;
@@ -9,6 +9,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.zj.example.viewdraghelper.R;
+
 /**
  * Created by zhengjiong on 14/12/29.
  */
@@ -18,15 +20,11 @@ public class SlidingLayout extends LinearLayout{
     private View mDragView;
 
     public SlidingLayout(Context context) {
-        this(context, null);
+        super(context);
     }
 
     public SlidingLayout(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
-    }
-
-    public SlidingLayout(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+        super(context, attrs);
     }
 
     @Override
@@ -39,6 +37,7 @@ public class SlidingLayout extends LinearLayout{
         mViewDragHelper = ViewDragHelper.create(this, 1f, new ViewDragHelper.Callback() {
             @Override
             public boolean tryCaptureView(View view, int i) {
+                //要捕获的view
                 return mDragView == view;
             }
 

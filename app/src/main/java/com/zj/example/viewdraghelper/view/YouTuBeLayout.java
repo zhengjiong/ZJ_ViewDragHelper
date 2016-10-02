@@ -1,14 +1,15 @@
-package com.zj.example.viewdraghelper;
+package com.zj.example.viewdraghelper.view;
 
 import android.content.Context;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
+
+import com.zj.example.viewdraghelper.R;
 
 /**
  *
@@ -17,7 +18,7 @@ import android.widget.LinearLayout;
 public class YouTuBeLayout extends LinearLayout{
     private int mTop;
     private int mDragRange;
-    private float mDragOffset;
+    private float mDragOffsetPercentage;//当前移动的百分比
 
     private View mHeadView;
 
@@ -33,6 +34,16 @@ public class YouTuBeLayout extends LinearLayout{
 
     public YouTuBeLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
+        //Log.i("zj", "onLayout mTop" + mTop);
+
+        mDragRange = getMeasuredHeight() - mHeadView.getMeasuredHeight() - getPaddingBottom();
+
+        mHeadView.layout(0, mTop, r, mTop + mHeadView.getMeasuredHeight());
     }
 
     @Override
@@ -68,22 +79,30 @@ public class YouTuBeLayout extends LinearLayout{
             public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
                 //Log.i("zj", "top=" + top);
                 mTop = top;
-                mDragOffset = (float) top / mDragRange;
+                //当前移动的百分比
+                mDragOffsetPercentage = (float) top / mDragRange;
+                System.out.println("mDragOffsetPercentage=" + mDragOffsetPercentage + " ,top=" + top + " ,mDragRange=" + mDragRange);
                 //requestLayout();//这里可以不加,不知道vhc demo为什么要加这个
             }
 
             /**
              * 当触摸释放后操作
              * @param releasedChild
-             * @param xvel
-             * @param yvel
+             * @param xvel X velocity of the pointer as it left the screen in pixels per second.(X方向加速度)
+             * @param yvel Y velocity of the pointer as it left the screen in pixels per second.(Y方向加速度)
              */
             @Override
             public void onViewReleased(View releasedChild, float xvel, float yvel) {
-                Log.i("zj", "released yvel=" + yvel);
-                int top = getPaddingTop();
-                if (yvel > 0 || (yvel == 0 && mDragOffset > 0.5f)) {
-                    top += mDragRange;
+                System.out.println("released yvel=" + yvel);
+                int top = 0;
+
+                //Y方向加速度
+                if (yvel > 0 || (yvel == 0 && mDragOffsetPercentage > 0.5f)) {
+                    //滑动到底部的top位置
+                    top = getPaddingTop() + mDragRange;
+                } else {
+                    //滑动到顶部的top位置
+                    top = getPaddingTop();
                 }
                 /**
                  * 区别在于settleCapturedViewAt()会以最后松手前的滑动速率为初速度将View滚动到最终位置，
@@ -94,15 +113,6 @@ public class YouTuBeLayout extends LinearLayout{
                 invalidate();
             }
 
-            /**
-             * 可以拖动的范围(不重写也可以, 但是重写后滑动更快跟平滑一些)
-             * @param child
-             * @return
-             */
-            @Override
-            public int getViewVerticalDragRange(View child) {
-                return mDragRange;
-            }
         });
     }
 
@@ -123,16 +133,6 @@ public class YouTuBeLayout extends LinearLayout{
         mViewDragHelper.processTouchEvent(event);
 
         return true;
-    }
-
-    @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        super.onLayout(changed, l, t, r, b);
-        //Log.i("zj", "onLayout mTop" + mTop);
-
-        mDragRange = getMeasuredHeight() - mHeadView.getMeasuredHeight();
-
-        mHeadView.layout(0, mTop, r, mTop + mHeadView.getMeasuredHeight());
     }
 
     @Override
