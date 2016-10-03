@@ -34,6 +34,12 @@ public class MyActivity extends Activity {
                 startActivity(new Intent(MyActivity.this, Demo3Activity.class));
             }
         });
+        findViewById(R.id.btn4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MyActivity.this, Demo4DrawerLayoutActivity.class));
+            }
+        });
     }
 
 

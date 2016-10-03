@@ -23,4 +23,10 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:text="demo3"/>
+    <Button
+        android:id="@+id/btn4"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="demo5-leftDrawerLayout"/>
 </LinearLayout>
