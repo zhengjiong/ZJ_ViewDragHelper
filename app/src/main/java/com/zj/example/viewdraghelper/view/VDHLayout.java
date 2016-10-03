@@ -119,10 +119,22 @@ public class VDHLayout extends LinearLayout {
     }
 
     @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        /**
+         * onLayout中用来确定子view的位置, 所以可以获取子view的left和top,
+         * onsizeChanged中只能获取view的宽高, left和top不能获取到值(值为0)
+         */
+        mAutoBackView.getMeasuredWidth();
+        int width = getMeasuredWidth();
+    }
+
+    @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
 
-        //onLayout中用来确定子view的位置, 谁有可以获取子view的left和top
+        //onLayout中用来确定子view的位置, 所以可以获取子view的left和top
+        //onsizeChanged中只能获取view的宽高, left和top不能获取到值(值为0)
         mAutoBackViewOriginPoint.x = mAutoBackView.getLeft();
         mAutoBackViewOriginPoint.y = mAutoBackView.getTop();
     }
