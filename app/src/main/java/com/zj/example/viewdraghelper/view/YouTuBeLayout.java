@@ -5,6 +5,7 @@ import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -36,14 +37,28 @@ public class YouTuBeLayout extends LinearLayout{
         super(context, attrs, defStyleAttr);
     }
 
+    /**
+     * onLayout方法只有在View最开始初始化的时候才会调用, 之后的drag操作不会调用此方法
+     * @param changed
+     * @param l
+     * @param t
+     * @param r
+     * @param b
+     */
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
-        //Log.i("zj", "onLayout mTop" + mTop);
+        Log.i("zj", "onLayout mTop" + mTop);
 
+        //mDragRange = getMeasuredHeight() - mHeadView.getMeasuredHeight() - getPaddingBottom();
+
+        //mHeadView.layout(0, mTop, r, mTop + mHeadView.getMeasuredHeight());
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
         mDragRange = getMeasuredHeight() - mHeadView.getMeasuredHeight() - getPaddingBottom();
-
-        mHeadView.layout(0, mTop, r, mTop + mHeadView.getMeasuredHeight());
     }
 
     @Override
