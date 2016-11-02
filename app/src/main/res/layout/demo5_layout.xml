@@ -39,13 +39,27 @@
         </FrameLayout>
 
     </com.zj.example.viewdraghelper.view.GoTopLayout>
-
-    <ImageView
-        android:id="@+id/goTop"
+    <TextView
+        android:id="@+id/go_bottom"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_margin="16dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:src="@drawable/ic_launcher"/>
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:background="@android:color/holo_green_dark"
+        android:text="go底部"/>
+    <TextView
+        android:id="@+id/go_top"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_above="@id/go_bottom"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:background="@android:color/holo_green_dark"
+        android:text="go顶部"/>
+
 </RelativeLayout>

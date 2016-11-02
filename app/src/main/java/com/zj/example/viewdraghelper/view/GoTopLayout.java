@@ -46,7 +46,7 @@ public class GoTopLayout extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        System.out.println("onLayout");
+        System.out.println("============================onLayout====================================");
         topView.layout(0, 0, r, b);
         bottomView.layout(0, topView.getMeasuredHeight(), r, topView.getMeasuredHeight() + bottomView.getMeasuredHeight());
     }
@@ -76,13 +76,19 @@ public class GoTopLayout extends ViewGroup {
     @Override
     public void computeScroll() {
         if (mScroller.computeScrollOffset()) {
+            System.out.println("computeScroll -> scrollTo=" + mScroller.getCurrY());
             scrollTo(0, mScroller.getCurrY());
             invalidate();
         }
     }
 
-    public void goTop(){
+    public void goBottom(){
         mScroller.startScroll(0, 0, 0, bottomView.getMeasuredHeight(), 1000);
+        invalidate();
+    }
+    public void goTop(){
+        System.out.println("goTop finalY=" + mScroller.getFinalY());
+        mScroller.startScroll(0, mScroller.getFinalY(), 0, -mScroller.getFinalY(), 1000);
         invalidate();
     }
 }

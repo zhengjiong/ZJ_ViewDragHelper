@@ -20,12 +20,20 @@ public class Demo5ActivityGoTop extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.demo5_layout);
 
-        ImageView imageView = (ImageView) findViewById(R.id.goTop);
+        TextView imageView = (TextView) findViewById(R.id.go_top);
+        TextView imgGoBottom = (TextView) findViewById(R.id.go_bottom);
         final GoTopLayout goTopLayout = (GoTopLayout) findViewById(R.id.go_top_layout);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goTopLayout.goTop();
+            }
+        });
+
+        imgGoBottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goTopLayout.goBottom();
             }
         });
     }
