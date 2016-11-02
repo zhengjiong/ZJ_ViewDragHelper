@@ -40,6 +40,12 @@ public class MyActivity extends Activity {
                 startActivity(new Intent(MyActivity.this, Demo4DrawerLayoutActivity.class));
             }
         });
+        findViewById(R.id.btn5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MyActivity.this, Demo5ActivityGoTop.class));
+            }
+        });
     }
 
 

@@ -1,34 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zj.example.viewdraghelper.view.GoTopLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/top"
+    <com.zj.example.viewdraghelper.view.GoTopLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/go_top_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#f14b6c"
-        android:clickable="false">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="top"
-            android:textSize="40sp"/>
-    </FrameLayout>
+        <FrameLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f14b6c"
+            android:clickable="false">
 
-    <FrameLayout
-        android:id="@+id/bottom"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#adf997">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="bottom"
-            android:textSize="40sp"/>
-    </FrameLayout>
-</com.zj.example.viewdraghelper.view.GoTopLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="top"
+                android:textSize="40sp"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#b7f98e">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="bottom"
+                android:textSize="40sp"/>
+        </FrameLayout>
+
+    </com.zj.example.viewdraghelper.view.GoTopLayout>
+
+    <ImageView
+        android:id="@+id/goTop"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_launcher"/>
+</RelativeLayout>

@@ -21,6 +21,7 @@
         <activity android:name=".Demo2Activity"/>
         <activity android:name=".Demo3Activity"/>
         <activity android:name=".Demo4DrawerLayoutActivity"/>
+        <activity android:name=".Demo5ActivityGoTop"/>
     </application>
 
 </manifest>

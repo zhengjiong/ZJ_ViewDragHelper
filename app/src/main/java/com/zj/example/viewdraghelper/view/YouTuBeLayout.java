@@ -48,7 +48,7 @@ public class YouTuBeLayout extends LinearLayout{
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
-        Log.i("zj", "onLayout mTop" + mTop);
+        System.out.println("onLayout mTop" + mTop);
 
         //mDragRange = getMeasuredHeight() - mHeadView.getMeasuredHeight() - getPaddingBottom();
 
@@ -92,11 +92,12 @@ public class YouTuBeLayout extends LinearLayout{
              */
             @Override
             public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
-                //Log.i("zj", "top=" + top);
+                Log.i("zj", "top=" + top);
+                System.out.println("onViewPositionChanged top" + top);
                 mTop = top;
                 //当前移动的百分比
                 mDragOffsetPercentage = (float) top / mDragRange;
-                System.out.println("mDragOffsetPercentage=" + mDragOffsetPercentage + " ,top=" + top + " ,mDragRange=" + mDragRange);
+                //System.out.println("mDragOffsetPercentage=" + mDragOffsetPercentage + " ,top=" + top + " ,mDragRange=" + mDragRange);
                 //requestLayout();//这里可以不加,不知道vhc demo为什么要加这个
             }
 
@@ -108,7 +109,7 @@ public class YouTuBeLayout extends LinearLayout{
              */
             @Override
             public void onViewReleased(View releasedChild, float xvel, float yvel) {
-                System.out.println("released yvel=" + yvel);
+                System.out.println("onViewReleased yvel=" + yvel);
                 int top = 0;
 
                 //Y方向加速度
@@ -153,6 +154,7 @@ public class YouTuBeLayout extends LinearLayout{
     @Override
     public void computeScroll() {
         if (mViewDragHelper.continueSettling(true)) {
+            System.out.println("computeScroll 正在滚动");
             ViewCompat.postInvalidateOnAnimation(this);
         }
     }

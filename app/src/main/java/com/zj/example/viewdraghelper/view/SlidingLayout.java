@@ -78,8 +78,13 @@ public class SlidingLayout extends LinearLayout{
     }
 
     @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        super.onLayout(changed, l, t, r, b);
+    protected void onLayout(boolean changed, int l, int top, int r, int b) {
+        super.onLayout(changed, l, top, r, b);
+        /**
+         * clampViewPositionVertical,和clampViewPositionHorizontal
+         * 不会触发onLayout
+         */
+        System.out.println("onLayout top=" + top);
     }
 
     @Override

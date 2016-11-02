@@ -69,6 +69,7 @@ public class VDHLayout extends LinearLayout {
             @Override
             public void onViewReleased(View releasedChild, float xvel, float yvel) {
                 //super.onViewReleased(releasedChild, xvel, yvel);
+                System.out.println("onViewReleased 放开");
                 if (releasedChild == mAutoBackView) {
                     mViewDragHelper.smoothSlideViewTo(mAutoBackView, mAutoBackViewOriginPoint.x, mAutoBackViewOriginPoint.y);
                     invalidate();
@@ -91,6 +92,7 @@ public class VDHLayout extends LinearLayout {
 
             @Override
             public int clampViewPositionVertical(View child, int top, int dy) {
+                System.out.println("clampViewPositionVertical top=" + top);
                 return top;
             }
 
@@ -114,6 +116,7 @@ public class VDHLayout extends LinearLayout {
     @Override
     public void computeScroll() {
         if (mViewDragHelper.continueSettling(true)) {
+            System.out.println("computeScroll 正在滑动");
             ViewCompat.postInvalidateOnAnimation(this);
         }
     }
@@ -132,7 +135,7 @@ public class VDHLayout extends LinearLayout {
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         super.onLayout(changed, l, t, r, b);
-
+        System.out.println("onLayout top=" + t);
         //onLayout中用来确定子view的位置, 所以可以获取子view的left和top
         //onsizeChanged中只能获取view的宽高, left和top不能获取到值(值为0)
         mAutoBackViewOriginPoint.x = mAutoBackView.getLeft();
