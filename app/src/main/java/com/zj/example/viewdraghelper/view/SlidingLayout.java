@@ -1,6 +1,7 @@
 package com.zj.example.viewdraghelper.view;
 
 import android.content.Context;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
@@ -14,7 +15,7 @@ import com.zj.example.viewdraghelper.R;
 /**
  * Created by zhengjiong on 14/12/29.
  */
-public class SlidingLayout extends LinearLayout{
+public class SlidingLayout extends CoordinatorLayout {
     private ViewDragHelper mViewDragHelper;
 
     private View mDragView;
